@@ -1,0 +1,21 @@
+name: 'RefDiff'
+description: 'RefDiff is an action used to detect changes in your codebase.'
+inputs:
+  baseRef:
+    description: 'The Git reference to compare.'
+    required: false
+    default: 'HEAD'
+  compareRef:
+    description: 'The Git reference to compare against.'
+    required: false
+    default: 'HEAD^'
+  path:
+    description: 'The path to the codebase to analyze.'
+    required: false
+    default: '.'
+outputs:
+  hasChanges:
+    description: 'Whether the codebase has changed.'
+runs:
+  using: 'node22'
+  main: 'dist/index.js'
