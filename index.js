@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
 function main(baseRef, compareRef, path) {
   try {
     const log = execSync('git log --oneline').toString().trim();
-    console.log(log);
+    core.info(log);
     const baseSha = execSync(`git rev-parse ${baseRef}`).toString().trim();
     const compareSha = execSync(`git rev-parse ${compareRef}`).toString().trim();
     const diff = execSync(`git diff ${baseSha} ${compareSha} -- ${path}`).toString().trim();
