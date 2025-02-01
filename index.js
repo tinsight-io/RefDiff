@@ -15,13 +15,13 @@ function main(baseRef, compareRef, path) {
 }
 
 try {
-  const baseRef = core.getInput('baseRef') || github.context.ref;
-  const compareRef = core.getInput('compareRef');
+  const baseRef = core.getInput('base_ref') || github.context.ref;
+  const compareRef = core.getInput('compare_ref') || 'HEAD';
   const path = core.getInput('path') || '.';
 
   const isSame = main(baseRef, compareRef, path);
 
-  core.setOutput('hasChanges', !isSame);
+  core.setOutput('has_changes', !isSame);
 } catch (error) {
   core.setFailed(error.message);
 }

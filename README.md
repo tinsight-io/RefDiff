@@ -4,13 +4,13 @@ RefDiff is a GitHub Action used to detect changes in your codebase between two G
 
 ## Inputs
 
-- `baseRef`: The Git reference to compare. (Optional, default: `HEAD`)
-- `compareRef`: The Git reference to compare against. (Optional, default: `HEAD^`)
+- `base_ref`: The Git reference to compare. (Optional, default: `HEAD`)
+- `compare_ref`: The Git reference to compare against. (Optional, default: `HEAD^`)
 - `path`: The path to the codebase to analyze. (Optional, default: `.`)
 
 ## Outputs
 
-- `hasChanges`: Whether the codebase has changes. (Boolean)
+- `has_changes`: Whether the codebase has changes. (Boolean)
 
 ## Usage
 
@@ -25,15 +25,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run RefDiff
-        uses: tinsight-io/refdif
+        uses: tinsight-io/refdif@v1
         id: refdiff
         with:
-          baseRef: 'main'
-          compareRef: 'feature-branch'
+          base_ref: 'main'
+          compare_ref: 'feature-branch'
           path: 'src/'
 
       - name: Check if codebase has changed
-        run: echo "Codebase changed: ${{ steps.refdiff.outputs.hasChanges }}"
+        run: |
+          echo "Codebase changed: ${{ steps.refdiff.outputs.has_changes }"
 ```
 
-In this example, the action compares the `feature-branch` against the `main` branch in the `src/` directory. The result is stored in the `hasChanges` output, which can be used in subsequent steps.
+In this example, the action compares the `feature-branch` against the `main` branch in the `src/` directory. The result is stored in the `has_changes` output, which can be used in subsequent steps.
