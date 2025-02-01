@@ -17,5 +17,5 @@ outputs:
   hasChanges:
     description: 'Whether the codebase has changed.'
 runs:
-  using: 'node22'
+  using: 'node20'
   main: 'dist/index.js'
