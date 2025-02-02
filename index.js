@@ -16,7 +16,7 @@ function main(baseRef, compareRef, path) {
     core.debug('Git log:');
     core.debug('Git log:');
     core.debug(log);
-    const baseSha = execSync(`git rev-parse ${baseRef}`).toString().trim();
+    // const baseSha = execSync(`git rev-parse ${baseRef}`).toString().trim();
     // const compareSha = execSync(`git rev-parse ${compareRef}`).toString().trim();
     // const diff = execSync(`git diff ${baseSha} ${compareSha} -- ${path}`).toString().trim();
 
